@@ -28,9 +28,14 @@ export default function App() {
   );
 }
 function usePrevious(val) {
+  console.log('%c-> developmentConsole: val= ', 'color:#77dcfd', val);
+
   const ref = useRef();
   useEffect(() => {
     ref.current = val;
   }, [val]);
+
+  console.log('%c-> developmentConsole: ref.current= ', 'color:#77dcfd', ref.current);
+
   return ref.current;
 }
