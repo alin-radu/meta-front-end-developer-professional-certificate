@@ -1,0 +1,15 @@
+@import '../../../../styles/';
+
+.btn {
+  width: fit-content;
+  border-radius: $border-radius-small;
+  padding: 0.5rem 1rem;
+
+  &.btn-primary {
+    background-color: $yellow-primary;
+  }
+}
+
+.btn:hover {
+  cursor: pointer;
+}

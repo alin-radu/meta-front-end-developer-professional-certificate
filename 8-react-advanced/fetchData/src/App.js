@@ -1,5 +1,3 @@
-import React from 'react';
-
 function App() {
   const [user, setUser] = React.useState([]);
   console.log('%c-> developmentConsole: user= ', 'color:#77dcfd', user);

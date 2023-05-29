@@ -1,0 +1,59 @@
+@import '../../../styles/';
+
+.section-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  background-color: $green-primary;
+
+  .elements-container {
+    @include main-container;
+    display: flex;
+
+    .left-side,
+    .right-side {
+      width: 50%;
+    }
+
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 0;
+      color: white;
+
+      h1 {
+        font-size: 3rem;
+        color: $yellow-primary;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        max-width: 200px;
+      }
+    }
+
+    .right-side {
+      position: relative;
+    }
+
+    .right-side::before {
+      border-radius: $border-radius-medium;
+      position: absolute;
+      content: "";
+      top: 30px;
+      right: 0px;
+      width: 400px;
+      height: 450px;
+      background-image: url("../../../assets/images/restauranfood.jpg");
+      background-color: #495e57;
+      /* background used when picture is unvailable*/
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+}

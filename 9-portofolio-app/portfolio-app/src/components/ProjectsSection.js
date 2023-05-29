@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useMediaQuery } from '@chakra-ui/react';
 import { Box, Heading } from '@chakra-ui/react';
 
