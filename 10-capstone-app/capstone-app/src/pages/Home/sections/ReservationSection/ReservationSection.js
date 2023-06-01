@@ -1,4 +1,4 @@
-import { BasicButton } from '../../UI/buttons/BasicButton/BasicButton';
+import { BasicButton } from 'components/UI/buttons/BasicButton/BasicButton';
 
 import styles from './ReservationSection.module.scss';
 

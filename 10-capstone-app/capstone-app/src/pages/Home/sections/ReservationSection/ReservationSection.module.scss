@@ -1,4 +1,4 @@
-@import '../../../styles/';
+@import "styles";
 
 .section-container {
   width: 100%;
@@ -47,7 +47,7 @@
       right: 0px;
       width: 400px;
       height: 450px;
-      background-image: url("../../../assets/images/restauranfood.jpg");
+      background-image: url("../../../../assets/images/restauranfood.jpg");
       background-color: #495e57;
       /* background used when picture is unvailable*/
       background-position: center;

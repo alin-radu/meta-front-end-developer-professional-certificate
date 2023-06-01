@@ -1,4 +1,4 @@
-import { ReservationSection } from '../../components/sections/ReservationSection/ReservationSection';
+import { ReservationSection } from './sections/ReservationSection/ReservationSection';
 
 export const Home = () => (
   <>

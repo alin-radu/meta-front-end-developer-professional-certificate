@@ -1,5 +1,5 @@
 // import { Footer } from '../Footer/Footer';
-import { NavBar } from '../NavBar/NavBar';
+import { NavBar } from 'layout/NavBar/NavBar';
 
 import styles from './MainLayout.module.scss';
 
