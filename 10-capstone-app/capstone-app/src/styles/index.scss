@@ -1,8 +1,11 @@
 // mixins
+@import './fonts';
+
+// mixins
 @import './mixins';
 
 // colors
 @import "./colors";
 
 // variables
-@import"./_variables.scss";
+@import"./variables";

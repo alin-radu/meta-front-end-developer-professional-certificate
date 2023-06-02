@@ -3,8 +3,8 @@
 header {
   @include main-container;
   display: flex;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   justify-content: space-between;
 
   img {
@@ -28,17 +28,11 @@ header {
         align-items: center;
         justify-content: center;
         transform: 0.5s linear;
-        padding: 0.5rem 1rem;
-        margin-right: 1rem;
-      }
-
-      li:last-child {
-        margin-right: 0;
+        padding: 0.5rem 0.75rem;
       }
 
       li:hover {
-        background-color: $yellow-primary;
-        border-radius: $border-radius-small;
+        @include background-yellow-radius;
       }
     }
   }
