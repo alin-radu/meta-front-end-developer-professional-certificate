@@ -4,6 +4,7 @@
   width: fit-content;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: transform .2s linear;
 
   &.btn-primary {
     border-radius: $border-radius-small;
