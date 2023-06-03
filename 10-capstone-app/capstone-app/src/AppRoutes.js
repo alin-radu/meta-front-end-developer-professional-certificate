@@ -12,7 +12,7 @@ export const AppRoutes = () => {
     <MainLayout>
       <Routes>
         <Route path={ROUTES.MAIN_HOME_ROUTE} element={<HomePage />} />
-        <Route path={ROUTES.MAIN_BOOKINGS_ROUTE} element={<BookingPage />} />
+        <Route path={ROUTES.MAIN_BOOKING_ROUTE} element={<BookingPage />} />
       </Routes>
     </MainLayout>
   );

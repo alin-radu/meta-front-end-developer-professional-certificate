@@ -1,3 +1,5 @@
+import { ROUTES } from 'utilities/routes';
+
 import { BasicButton } from 'components/UI/buttons/BasicButton/BasicButton';
 
 import styles from './ReservationSection.module.scss';
@@ -13,7 +15,11 @@ export const ReservationSection = () => {
             We are a family owned Mediterranean restaurant, focused on traditional recipes
             served with a modern twist.
           </p>
-          <BasicButton linkTo="/booking" type="btn-primary" animation={true}>
+          <BasicButton
+            linkTo={ROUTES.MAIN_BOOKING_ROUTE}
+            type="btn-primary"
+            animation={true}
+          >
             Reserve a Table
           </BasicButton>
         </div>
