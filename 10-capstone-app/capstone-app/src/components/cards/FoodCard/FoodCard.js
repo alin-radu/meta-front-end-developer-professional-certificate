@@ -1,3 +1,4 @@
+import { BasicButton } from 'components/UI/buttons/BasicButton/BasicButton';
 import styles from './FoodCard.module.scss';
 
 const FoodCard = ({ img, title, price, description }) => {
@@ -12,7 +13,9 @@ const FoodCard = ({ img, title, price, description }) => {
         <summary>
           <p tabIndex="0">{description}</p>
         </summary>
-        <footer>Order a delivery</footer>
+        <footer>
+          <BasicButton type="btn-secondary">Order a delivery</BasicButton>
+        </footer>
       </section>
     </article>
   );

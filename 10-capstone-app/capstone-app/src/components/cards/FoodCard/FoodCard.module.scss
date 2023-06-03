@@ -10,6 +10,8 @@
   overflow-x: hidden;
   transition: transform .2s linear;
   border-radius: $border-radius-medium $border-radius-medium 0px 0px;
+  display: flex;
+  flex-direction: column;
 
   img {
     background-position: center;
@@ -18,6 +20,7 @@
   }
 
   section {
+    height: 100%;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -36,6 +39,10 @@
       }
     }
 
+    summary {
+      flex-grow: 1;
+    }
+
 
     p {
       padding: 0.5rem 0 0.5rem 0;
@@ -43,15 +50,9 @@
     }
 
     footer {
-      margin-left: -0.5rem;
-      width: fit-content;
-      color: $dark-secondary;
-      font-weight: 500;
-      padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-    }
-
-    footer:hover {
-      @include background-yellow-radius
+      button {
+        margin-left: -0.5rem;
+      }
     }
   }
 }

@@ -2,15 +2,26 @@
 
 .btn {
   width: fit-content;
-  border-radius: $border-radius-small;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 
   &.btn-primary {
+    border-radius: $border-radius-small;
     background-color: $yellow-primary;
+  }
+
+  &.btn-secondary {
+    font-weight: 600;
+    border: none;
+    border-radius: 0px;
+    background-color: transparent;
+  }
+
+  &.btn-secondary:hover {
+    @include background-yellow-radius;
   }
 }
 
-.btn:hover {
-  cursor: pointer;
+.btn.animation:hover {
   transform: scale(1.05);
 }

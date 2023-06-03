@@ -13,7 +13,7 @@ export const ReservationSection = () => {
             We are a family owned Mediterranean restaurant, focused on traditional recipes
             served with a modern twist.
           </p>
-          <BasicButton linkTo="/booking" type="btn-primary">
+          <BasicButton linkTo="/booking" type="btn-primary" animation={true}>
             Reserve a Table
           </BasicButton>
         </div>

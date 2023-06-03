@@ -48,7 +48,7 @@ export const SpecialsSection = () => {
     <section className={styles['section-container']}>
       <div className={styles['section-header']}>
         <h2>This weeks specials!</h2>
-        <BasicButton type="btn-primary" linkTo="/online-menu">
+        <BasicButton type="btn-primary" linkTo="/online-menu" animation={true}>
           Online Menu
         </BasicButton>
       </div>
