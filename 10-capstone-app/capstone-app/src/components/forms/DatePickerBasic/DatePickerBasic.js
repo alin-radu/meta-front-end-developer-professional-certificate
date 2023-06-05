@@ -16,16 +16,20 @@ export const DatePickerBasic = (props) => {
           const { form, field } = props;
           const { setFieldValue } = form;
           const { value } = field;
+          const inputDate = value ? new Date(value) : null;
 
           return (
             <DateView
               id={name}
               {...field}
               {...rest}
-              selected={value}
+              selected={inputDate}
               placeholderText="MM-DD-YYYY"
               dateFormat="MM-dd-yyyy"
-              onChange={(val) => setFieldValue(name, val)}
+              onChange={(val) => {
+                const formatedDate = val.toISOString().slice(0, 10);
+                setFieldValue(name, formatedDate);
+              }}
             />
           );
         }}
