@@ -4,9 +4,10 @@ import DateView from 'react-datepicker';
 import { TextError } from '../TextError/TextError';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import { getFormatedDate } from 'utilities/helpers';
 
 export const DatePickerBasic = (props) => {
-  const { label, name, styles, ...rest } = props;
+  const { label, name, styles, onChangeAction = null, ...rest } = props;
 
   return (
     <div className={styles['input-styles']}>
@@ -24,12 +25,20 @@ export const DatePickerBasic = (props) => {
               {...field}
               {...rest}
               selected={inputDate}
-              placeholderText="MM-DD-YYYY"
-              dateFormat="MM-dd-yyyy"
+              placeholderText="YYYY-MM-DD"
+              dateFormat="yyyy-mm-dd"
               onChange={(val) => {
-                const formatedDate = val.toISOString().slice(0, 10);
-                setFieldValue(name, formatedDate);
+                const formatedDate = getFormatedDate(val);
+                const callbackFunc = () => setFieldValue(name, formatedDate);
+
+                if (onChangeAction) {
+                  onChangeAction(formatedDate, setFieldValue, callbackFunc);
+                } else {
+                  callbackFunc();
+                }
               }}
+              minDate={new Date()}
+              autoComplete="off"
             />
           );
         }}

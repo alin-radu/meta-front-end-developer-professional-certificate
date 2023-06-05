@@ -1,6 +1,7 @@
 import { Formik, Form } from 'formik';
 
 import { validationSchema } from 'forms/validations/BookingFormValidation';
+import { getFormatedDate } from 'utilities/helpers';
 import { OCASSION_OPTIONS, TIME_OPTIONS } from 'pages/utils/constants';
 
 import { FormControl } from 'components/forms/FormControl/FormControl';
@@ -8,17 +9,46 @@ import { ButtonSubmitBasic } from 'components/forms/ButtonSubmitBasic/ButtonSubm
 
 import styles from 'styles/_form-primary.module.scss';
 
-const initialValues = {
-  email: '',
-  date: null,
-  time: TIME_OPTIONS[0].value,
-  guests: 1,
-  occasion: OCASSION_OPTIONS[0].value,
-};
+const currentDate = getFormatedDate(new Date());
+export const BookingForm = (props) => {
+  const { availableTimes, setAvailableTimes } = props;
 
-export const BookingForm = () => {
-  const onSubmitHandler = (values) => {
-    console.log('%c-> developmentConsole: values=====> ', 'color:#77dcfd', values);
+  const initialValues = {
+    email: '',
+    date: null,
+    time: availableTimes[currentDate][0].value,
+    guests: 1,
+    occasion: OCASSION_OPTIONS[0].value,
+  };
+
+  const onSubmitHandler = (values, formikHelpers) => {
+    const selectedDate = values.date;
+    const selectedTime = values.time;
+    const isSelectedDate = selectedDate in availableTimes;
+
+    let updatedAvailableTime;
+    if (isSelectedDate) {
+      updatedAvailableTime = availableTimes[selectedDate].filter(
+        (item) => item.value !== selectedTime
+      );
+    } else {
+      updatedAvailableTime = TIME_OPTIONS.filter((item) => item.value !== selectedTime);
+    }
+
+    setAvailableTimes({
+      ...availableTimes,
+      [selectedDate]: updatedAvailableTime,
+    });
+    formikHelpers.resetForm();
+  };
+
+  const onChangeDateHandler = (selectedDate, setFieldValue, callbackFunc) => {
+    if (availableTimes[selectedDate]) {
+      setFieldValue('time', availableTimes[selectedDate][0].value);
+    } else {
+      setFieldValue('time', TIME_OPTIONS[0].value);
+    }
+    callbackFunc();
   };
 
   return (
@@ -30,52 +60,63 @@ export const BookingForm = () => {
         initialErrors={{ email: 'Required' }}
         onSubmit={onSubmitHandler}
       >
-        {(formik) => (
-          <Form>
-            <FormControl
-              control="input"
-              name="email"
-              type="email"
-              label="Email Address"
-              styles={styles}
-            />
-            <FormControl
-              control="date"
-              name="date"
-              type="date"
-              label="Choose Date"
-              styles={styles}
-            />
-            <FormControl
-              control="select"
-              name="time"
-              type="time"
-              label="Choose Time"
-              options={TIME_OPTIONS}
-              styles={styles}
-            />
-            <FormControl
-              control="input"
-              name="guests"
-              type="number"
-              label="Number Of Guests"
-              min="1"
-              max="10"
-              styles={styles}
-            />
-            <FormControl
-              control="select"
-              name="occasion"
-              type="occasion"
-              label="Occasion"
-              options={OCASSION_OPTIONS}
-              styles={styles}
-            />
-            <ButtonSubmitBasic disabled={!formik.isValid} styles={styles}>
-              Make Your reservation
-            </ButtonSubmitBasic>
-          </Form>
-        )}
+        {(formik) => {
+          const selectedDate = formik.values.date;
+          let availableTimesOptions;
+          if (selectedDate && availableTimes[selectedDate]) {
+            availableTimesOptions = availableTimes[selectedDate];
+          } else {
+            availableTimesOptions = TIME_OPTIONS;
+          }
+
+          return (
+            <Form>
+              <FormControl
+                control="input"
+                name="email"
+                type="email"
+                label="Email Address"
+                styles={styles}
+              />
+              <FormControl
+                control="date"
+                name="date"
+                type="date"
+                label="Choose Date"
+                styles={styles}
+                onChangeAction={onChangeDateHandler}
+              />
+              <FormControl
+                control="select"
+                name="time"
+                type="time"
+                label="Choose Time"
+                options={availableTimesOptions}
+                styles={styles}
+              />
+              <FormControl
+                control="input"
+                name="guests"
+                type="number"
+                label="Number Of Guests"
+                min="1"
+                max="10"
+                styles={styles}
+              />
+              <FormControl
+                control="select"
+                name="occasion"
+                type="occasion"
+                label="Occasion"
+                options={OCASSION_OPTIONS}
+                styles={styles}
+              />
+              <ButtonSubmitBasic disabled={!formik.isValid} styles={styles}>
+                Make Your reservation
+              </ButtonSubmitBasic>
+            </Form>
+          );
+        }}
       </Formik>
     </div>
   );
