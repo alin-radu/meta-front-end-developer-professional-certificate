@@ -7,7 +7,7 @@ export const BookingFormSection = (props) => {
 
   return (
     <div className={styles['section-container']}>
-      <h3>Booking</h3>
+      <h3>Book Now</h3>
       <BookingForm
         availableTimes={availableTimes}
         setAvailableTimes={setAvailableTimes}
