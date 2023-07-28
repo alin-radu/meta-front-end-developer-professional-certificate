@@ -4,7 +4,7 @@ import DateView from 'react-datepicker';
 import { TextError } from '../TextError/TextError';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { getFormatedDate } from 'utilities/helpers';
+import { getFormatedDate } from 'utils/helpers';
 
 export const DatePickerBasic = (props) => {
   const { label, name, styles, onChangeAction = null, ...rest } = props;

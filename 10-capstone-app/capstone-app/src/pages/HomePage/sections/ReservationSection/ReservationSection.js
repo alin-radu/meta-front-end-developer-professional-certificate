@@ -1,4 +1,4 @@
-import { ROUTES } from 'utilities/routes';
+import { ROUTES } from 'utils/routes';
 
 import { BasicButton } from 'components/UI/buttons/BasicButton/BasicButton';
 

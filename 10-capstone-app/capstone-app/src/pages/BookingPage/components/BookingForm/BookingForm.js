@@ -1,8 +1,8 @@
 import { Formik, Form } from 'formik';
 
 import { validationSchema } from 'forms/validations/BookingFormValidation';
-import { getFormatedDate } from 'utilities/helpers';
-import { OCASSION_OPTIONS, TIME_OPTIONS } from 'pages/utils/constants';
+import { getFormatedDate } from 'utils/helpers';
+import { OCASSION_OPTIONS, TIME_OPTIONS } from 'utils/constants';
 
 import { FormControl } from 'components/forms/FormControl/FormControl';
 import { ButtonSubmitBasic } from 'components/forms/ButtonSubmitBasic/ButtonSubmitBasic';
@@ -10,6 +10,7 @@ import { ButtonSubmitBasic } from 'components/forms/ButtonSubmitBasic/ButtonSubm
 import styles from 'styles/_form-primary.module.scss';
 
 const currentDate = getFormatedDate(new Date());
+
 export const BookingForm = (props) => {
   const { availableTimes, setAvailableTimes } = props;
 

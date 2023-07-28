@@ -1,6 +1,6 @@
 import { BasicButton } from 'components/UI/buttons/BasicButton/BasicButton';
 
-import { ROUTES } from 'utilities/routes';
+import { ROUTES } from 'utils/routes';
 
 import FoodCard from 'components/cards/FoodCard/FoodCard';
 

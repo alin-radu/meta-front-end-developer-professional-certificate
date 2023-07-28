@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { ROUTES } from 'utilities/routes';
+import { ROUTES } from 'utils/routes';
 
 import Logo from 'assets/icons/Logo.svg';
 

@@ -1,3 +1,5 @@
+import { TIME_OPTIONS } from 'utils/constants';
+
 export const getFormatedDate = (obj) => {
   if (!(obj instanceof Date)) {
     return;
@@ -11,3 +13,7 @@ export const getFormatedDate = (obj) => {
 
   return date;
 };
+
+const currentDate = getFormatedDate(new Date());
+
+export const defaultAvailableTimes = { [currentDate]: TIME_OPTIONS };
