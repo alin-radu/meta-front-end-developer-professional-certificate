@@ -8,6 +8,8 @@ import { MainLayout } from './layout/MainLayout/MainLayout';
 
 import { HomePage } from 'pages/HomePage/HomePage';
 import { BookingPage } from 'pages/BookingPage/BookingPage';
+import { BookingReservationPage } from 'pages/BookingReservationPage/BookingReservationPage';
+import { UnderConstructionPage } from 'pages/UnderConstructionPage/UnderConstructionPage';
 
 export const AppRoutes = () => {
   const [availableTimes, setAvailableTimes] = useState({ ...defaultAvailableTimes });
@@ -16,8 +18,10 @@ export const AppRoutes = () => {
     <MainLayout>
       <Routes>
         <Route path={ROUTES.MAIN_HOME_ROUTE} element={<HomePage />} />
+        <Route path={ROUTES.MAIN_ABOUT} element={<BookingReservationPage />} />
+        <Route path={ROUTES.MAIN_MENU} element={<UnderConstructionPage />} />
         <Route
-          path={ROUTES.MAIN_BOOKING_ROUTE}
+          path={ROUTES.MAIN_BOOKING}
           element={
             <BookingPage
               availableTimes={availableTimes}
@@ -25,6 +29,8 @@ export const AppRoutes = () => {
             />
           }
         />
+        <Route path={ROUTES.MAIN_ORDER_ONLINE} element={<UnderConstructionPage />} />
+        <Route path={ROUTES.MAIN_LOGIN} element={<UnderConstructionPage />} />
       </Routes>
     </MainLayout>
   );

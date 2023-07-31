@@ -1,4 +1,4 @@
-import Logo from '../../assets/images/little_lemon_green_14@4.webp';
+import Logo from 'assets/images/little_lemon_green_14@4.webp';
 
 import styles from './Footer.module.scss';
 

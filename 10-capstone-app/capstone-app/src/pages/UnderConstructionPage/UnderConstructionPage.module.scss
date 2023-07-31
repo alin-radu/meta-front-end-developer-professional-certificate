@@ -1,0 +1,8 @@
+@import "styles";
+
+.section-container {
+  @include main-container;
+
+  width: 100%;
+  height: 100%;
+}

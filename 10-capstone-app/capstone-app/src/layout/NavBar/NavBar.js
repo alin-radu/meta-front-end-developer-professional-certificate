@@ -17,19 +17,19 @@ export const NavBar = () => (
           <Link to={ROUTES.MAIN_HOME_ROUTE}>Home</Link>
         </li>
         <li>
-          <a href="#about">About</a>
+          <Link to={ROUTES.MAIN_ABOUT}>About</Link>
         </li>
         <li>
-          <a href="#menu">Menu</a>
+          <Link to={ROUTES.MAIN_MENU}>Menu</Link>
         </li>
         <li>
-          <Link to={ROUTES.MAIN_BOOKING_ROUTE}>Reservations</Link>
+          <Link to={ROUTES.MAIN_BOOKING}>Reservations</Link>
         </li>
         <li>
-          <a href="#order-online">Order Online</a>
+          <Link to={ROUTES.MAIN_ORDER_ONLINE}>Order Online</Link>
         </li>
         <li>
-          <a href="#login">Login</a>
+          <Link to={ROUTES.MAIN_LOGIN}>Login</Link>
         </li>
       </ul>
     </nav>
