@@ -1,21 +1,14 @@
-import './Footer.scss';
+import Logo from '../../assets/images/little_lemon_green_14@4.webp';
+
+import styles from './Footer.module.scss';
 
 export const Footer = () => (
-  <footer>
-    <nav>
-      <h3>Contact Us</h3>
-      <ul>
-        <li>Address: 123 Test Street</li>
-        <li>Email: order@littlelemon.com</li>
-        <li>Phone: 032 329 5733</li>
-      </ul>
-    </nav>
-    <nav>
-      <h3>Opening times</h3>
-      <ul>
-        <li>Monday - Friday: 9:00 - 22:00</li>
-        <li>Saturday - Sunday: 10:00 - 24:00</li>
-      </ul>
-    </nav>
+  <footer tabIndex="0" className={styles.container}>
+    <div tabIndex="0">
+      <img src={Logo} alt="Little Lemon Logo" width="100px" height="33.3px" />
+    </div>
+    <div tabIndex="0">
+      <p>&copy; Copyright Little Lemon</p>
+    </div>
   </footer>
 );

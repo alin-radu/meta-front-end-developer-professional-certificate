@@ -3,7 +3,7 @@ export const ButtonSubmitBasic = (props) => {
 
   return (
     <div className={styles['button-styles']}>
-      <button type="submit" disabled={disabled}>
+      <button tabIndex={0} type="submit" disabled={disabled}>
         {children}
       </button>
     </div>

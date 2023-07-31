@@ -1,4 +1,4 @@
-import { render, screen, act, waitFor } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { BookingFormSection } from './BookingFormSection';
 
 import { defaultAvailableTimes } from 'utils/helpers';

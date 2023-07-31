@@ -4,15 +4,15 @@ import { validationSchema } from 'forms/validations/BookingFormValidation';
 import { getFormatedDate } from 'utils/helpers';
 import { OCASSION_OPTIONS, TIME_OPTIONS } from 'utils/constants';
 
-import { FormControl } from 'components/forms/FormControl/FormControl';
-import { ButtonSubmitBasic } from 'components/forms/ButtonSubmitBasic/ButtonSubmitBasic';
+import { FormControl } from 'components/form/FormControl/FormControl';
+import { ButtonSubmitBasic } from 'components/form/ButtonSubmitBasic/ButtonSubmitBasic';
 
 import styles from 'styles/_form-primary.module.scss';
 
 const currentDate = getFormatedDate(new Date());
 
 export const BookingForm = (props) => {
-  const { availableTimes, setAvailableTimes } = props;
+  const { setIsLoading, availableTimes, setAvailableTimes } = props;
 
   const initialValues = {
     email: '',
@@ -36,11 +36,15 @@ export const BookingForm = (props) => {
       updatedAvailableTime = TIME_OPTIONS.filter((item) => item.value !== selectedTime);
     }
 
-    setAvailableTimes({
-      ...availableTimes,
-      [selectedDate]: updatedAvailableTime,
-    });
-    formikHelpers.resetForm();
+    setIsLoading(true);
+    setTimeout(() => {
+      setAvailableTimes({
+        ...availableTimes,
+        [selectedDate]: updatedAvailableTime,
+      });
+      formikHelpers.resetForm();
+      setIsLoading(false);
+    }, 1000)
   };
 
   const onChangeDateHandler = (selectedDate, setFieldValue, callbackFunc) => {
