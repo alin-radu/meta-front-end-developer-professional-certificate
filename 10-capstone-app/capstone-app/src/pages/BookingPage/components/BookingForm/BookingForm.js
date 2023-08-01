@@ -1,8 +1,12 @@
+import { useState, useRef } from 'react';
 import { Formik, Form } from 'formik';
+
+import { Navigate } from 'react-router-dom';
 
 import { validationSchema } from 'forms/validations/BookingFormValidation';
 import { getFormatedDate } from 'utils/helpers';
 import { OCASSION_OPTIONS, TIME_OPTIONS } from 'utils/constants';
+import { ROUTES } from 'utils/routes';
 
 import { FormControl } from 'components/form/FormControl/FormControl';
 import { ButtonSubmitBasic } from 'components/form/ButtonSubmitBasic/ButtonSubmitBasic';
@@ -11,16 +15,25 @@ import styles from 'styles/_form-primary.module.scss';
 
 const currentDate = getFormatedDate(new Date());
 
+const initialValuesHelper = (availableTime, ocassionOption) => ({
+  email: '',
+  date: null,
+  time: availableTime,
+  guests: 1,
+  occasion: ocassionOption,
+});
+
 export const BookingForm = (props) => {
   const { setIsLoading, availableTimes, setAvailableTimes } = props;
 
-  const initialValues = {
-    email: '',
-    date: null,
-    time: availableTimes[currentDate][0].value,
-    guests: 1,
-    occasion: OCASSION_OPTIONS[0].value,
-  };
+  const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
+
+  const formDataRef = useRef(null);
+
+  const initialValues = initialValuesHelper(
+    availableTimes[currentDate][0].value,
+    OCASSION_OPTIONS[0].value
+  );
 
   const onSubmitHandler = (values, formikHelpers) => {
     const selectedDate = values.date;
@@ -36,15 +49,21 @@ export const BookingForm = (props) => {
       updatedAvailableTime = TIME_OPTIONS.filter((item) => item.value !== selectedTime);
     }
 
+    const newAvailableTimes = {
+      ...availableTimes,
+      [selectedDate]: updatedAvailableTime,
+    };
+
     setIsLoading(true);
+    formDataRef.current = { ...values };
     setTimeout(() => {
       setAvailableTimes({
-        ...availableTimes,
-        [selectedDate]: updatedAvailableTime,
+        ...newAvailableTimes,
       });
       formikHelpers.resetForm();
       setIsLoading(false);
-    }, 1000)
+      setIsBookingConfirmed(true);
+    }, 1500);
   };
 
   const onChangeDateHandler = (selectedDate, setFieldValue, callbackFunc) => {
@@ -123,6 +142,13 @@ export const BookingForm = (props) => {
           );
         }}
       </Formik>
+      {isBookingConfirmed && (
+        <Navigate
+          to={ROUTES.MAIN_BOOKING_CONFIRMATION}
+          state={{ ...formDataRef.current }}
+          replace={true}
+        />
+      )}
     </div>
   );
 };

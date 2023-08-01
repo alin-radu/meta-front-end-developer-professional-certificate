@@ -1,6 +1,6 @@
 @import '../../styles/';
 
-.container {
+.section-container {
   @include main-container;
 
   margin-top: 2rem;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-  .container {
+  .section-container {
     margin-top: 1.5rem;
   }
 }

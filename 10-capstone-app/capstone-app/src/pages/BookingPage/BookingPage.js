@@ -1,12 +1,16 @@
+import { useState } from 'react';
+
+import { defaultAvailableTimes } from 'utils/helpers';
+
 import { BookingFormSection } from './sections/BookingFormSection/BookingFormSection';
 
-export const BookingPage = (props) => {
-  const { availableTimes, setAvailableTimes } = props;
+export const BookingPage = () => {
+  const [availableTimes, setAvailableTimes] = useState({ ...defaultAvailableTimes });
 
   return (
-      <BookingFormSection
-        availableTimes={availableTimes}
-        setAvailableTimes={setAvailableTimes}
-      />
+    <BookingFormSection
+      availableTimes={availableTimes}
+      setAvailableTimes={setAvailableTimes}
+    />
   );
 };
