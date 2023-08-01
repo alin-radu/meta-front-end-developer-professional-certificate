@@ -37,3 +37,20 @@ header {
     }
   }
 }
+
+@media screen and (max-width: 679px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  header {
+    nav {
+      ul {
+        flex-direction: column;
+      }
+    }
+  }
+}

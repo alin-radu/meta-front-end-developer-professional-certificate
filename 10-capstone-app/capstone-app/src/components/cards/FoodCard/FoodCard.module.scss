@@ -60,3 +60,19 @@
 .card:hover {
   transform: scale(1.05);
 }
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .card {
+    border-radius: $border-radius-medium ;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    header {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+}
