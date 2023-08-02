@@ -23,7 +23,7 @@ const FoodCards = () =>
 export const SpecialsSection = () => (
   <section className={styles['section-container']}>
     <div className={styles['section-header']}>
-      <h2>This weeks specials!</h2>
+      <h2 tabIndex="0">This weeks specials!</h2>
       <BasicButton type="btn-primary" linkTo={ROUTES.MAIN_MENU} animation={true}>
         Online Menu
       </BasicButton>

@@ -75,6 +75,11 @@ export const BookingForm = (props) => {
     callbackFunc();
   };
 
+  console.log(
+    '%c-> developmentConsole: validationSchema= ',
+    'color:#77dcfd',
+    validationSchema
+  );
   return (
     <div className={styles['form-primary-styles']}>
       <Formik
@@ -135,7 +140,11 @@ export const BookingForm = (props) => {
                 options={OCASSION_OPTIONS}
                 styles={styles}
               />
-              <ButtonSubmitBasic disabled={!formik.isValid} styles={styles}>
+              <ButtonSubmitBasic
+                tabIndex={formik.isValid ? '-1' : '0'}
+                disabled={!formik.isValid}
+                styles={styles}
+              >
                 Make Your reservation
               </ButtonSubmitBasic>
             </Form>

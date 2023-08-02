@@ -9,9 +9,9 @@ export const ReservationSection = () => {
     <section className={styles['section-container']}>
       <div className={styles['elements-container']}>
         <div className={styles['left-side']}>
-          <h1>Little Lemon</h1>
-          <h3>Chicago</h3>
-          <p>
+          <h1 tabIndex="0">Little Lemon</h1>
+          <h3 tabIndex="0">Chicago</h3>
+          <p tabIndex="0">
             We are a family owned Mediterranean restaurant, focused on traditional recipes
             served with a modern twist.
           </p>
